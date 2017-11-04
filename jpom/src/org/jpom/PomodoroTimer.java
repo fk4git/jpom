@@ -66,9 +66,7 @@ public class PomodoroTimer {
     		JOptionPane.showMessageDialog(null,
 					fileapp.toString());
     	}
-		
-        startImage = createImage("green_people.gif", "tray icon");
-        stopImage = createImage("red_people.gif", "tray icon");
+	
     	
 		if (args.length>0)
     	{
@@ -294,11 +292,22 @@ public class PomodoroTimer {
     		String operatingSystem;
     		operatingSystem = System.getProperty("os.name");
 
+//    		if (operatingSystem.equalsIgnoreCase("linux")) {
+    	        startImage = createImage("green.png", "tray icon");
+    	        stopImage = createImage("red.png", "tray icon");
+//    		}
+//    		else{
+//    	        startImage = createImage("green_people.gif", "tray icon");
+//    	        stopImage = createImage("red_people.gif", "tray icon");
+//    		}
+    		
     		if (operatingSystem.equalsIgnoreCase("linux"))
     		{
     			UIManager.setLookAndFeel(lafGTK);
+    			
     		} else if (operatingSystem.startsWith("Windows")) {
     			UIManager.setLookAndFeel(lafWindows);
+
     		} else if (operatingSystem.startsWith("solaris")) {
     			UIManager.setLookAndFeel(lafMotif);
     		} else {
